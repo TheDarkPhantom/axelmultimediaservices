@@ -38,7 +38,7 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 md:h-22">
-        {/* Logo — mark + text */}
+        {/* Logo — mark + brand name */}
         <Link
           href="/"
           aria-label="Axel Multimedia Services home"
@@ -52,6 +52,13 @@ export function Navbar() {
             className="h-12 w-auto md:h-14"
             priority
           />
+          <span className="hidden font-heading text-[11px] font-light uppercase leading-tight tracking-[0.2em] text-foreground/90 sm:block">
+            Axel
+            <br />
+            <span className="text-[9px] tracking-[0.15em] text-foreground/50">
+              Multimedia Services
+            </span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
