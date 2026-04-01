@@ -3,6 +3,7 @@ import { getAllServices } from "@/lib/services-data";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { FadeUp } from "@/components/shared/FadeUp";
 import { GoldDivider } from "@/components/shared/GoldDivider";
+import { SectionLabel } from "@/components/shared/SectionLabel";
 import { SITE_URL } from "@/lib/constants";
 import { generateWebPageSchema, generateBreadcrumbSchema } from "@/lib/metadata";
 
@@ -42,18 +43,20 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="py-24 md:py-32">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      <section className="relative py-24 md:py-32">
+        <div className="absolute inset-0 bg-gradient-to-b from-surface/40 to-transparent" />
+        <div className="relative mx-auto max-w-4xl px-6 text-center">
           <FadeUp>
-            <h1 className="font-heading text-4xl font-light text-foreground md:text-6xl">
-              Our Services
+            <SectionLabel text="SERVICES" />
+            <h1 className="mt-4 font-heading text-4xl text-foreground md:text-6xl">
+              What We Bring to Your Event
             </h1>
           </FadeUp>
           <GoldDivider className="my-6" />
           <FadeUp delay={0.1}>
-            <p className="mx-auto max-w-2xl text-base text-foreground/60 md:text-lg">
-              We don&apos;t sell packages off a shelf. Every production is scoped
-              around your event requirements, timeline, and budget.
+            <p className="mx-auto max-w-2xl text-base text-foreground/50 md:text-lg">
+              No off-the-shelf packages. Every production is scoped around your
+              event — venue, audience, timeline, and budget.
             </p>
           </FadeUp>
         </div>
@@ -68,6 +71,7 @@ export default function ServicesPage() {
                 key={service.slug}
                 service={service}
                 expanded
+                index={index}
                 delay={index * 0.08}
               />
             ))}

@@ -24,12 +24,15 @@ export function Hero() {
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 h-full w-full object-cover"
         style={{ y }}
       />
 
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/95" />
+      {/* Radial vignette for center text contrast */}
+      <div className="absolute inset-0 [background:radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.4)_70%)]" />
 
       {/* Centered content */}
       <div className="relative z-10 flex h-full items-center justify-center text-center">
@@ -39,7 +42,7 @@ export function Hero() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <h1 className="mt-6 font-heading text-4xl font-light text-foreground sm:text-5xl md:text-7xl lg:text-8xl">
+            <h1 className="mt-6 font-heading text-4xl font-normal text-foreground sm:text-5xl md:text-7xl lg:text-8xl text-shadow-hero">
               We Don&apos;t Just Capture the Moment&nbsp;&mdash; We Broadcast
               It.
             </h1>
@@ -71,9 +74,9 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — gentle float, no bounce */}
       <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
-        <ChevronDown className="h-6 w-6 animate-bounce text-foreground/40" />
+        <ChevronDown className="h-6 w-6 animate-float text-foreground/40" />
       </div>
     </section>
   );

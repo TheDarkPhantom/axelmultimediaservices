@@ -21,7 +21,10 @@ import { BUSINESS_INFO, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-black pt-16 pb-8">
+    <footer className="relative bg-black pt-16 pb-8">
+      {/* Top gradient edge */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Col 1: Brand */}
@@ -29,24 +32,23 @@ export function Footer() {
             <Image
               src="/logo.png"
               alt="Axel Multimedia Services"
-              width={180}
-              height={45}
-              className="mb-4 h-10 w-auto"
+              width={200}
+              height={200}
+              className="mb-5 h-auto w-36"
             />
-            <p className="mb-6 max-w-xs text-sm leading-relaxed text-foreground/60">
-              Iloilo&apos;s premier live streaming and event coverage production
-              company. Broadcast-quality production for events that demand more
-              than ordinary.
+            <p className="mb-6 max-w-xs text-sm leading-relaxed text-foreground/50">
+              Broadcast-quality live streaming and event production based in
+              Iloilo City, serving Western Visayas and beyond.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <a
                 href={BUSINESS_INFO.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="text-foreground/40 transition-colors hover:text-gold"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-foreground/40 transition-all hover:border-gold/40 hover:text-gold hover:shadow-[0_0_12px_rgba(201,168,76,0.15)]"
               >
-                <FacebookIcon size={20} />
+                <FacebookIcon size={16} />
               </a>
               {BUSINESS_INFO.social.youtube && (
                 <a
@@ -54,9 +56,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="YouTube"
-                  className="text-foreground/40 transition-colors hover:text-gold"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-foreground/40 transition-all hover:border-gold/40 hover:text-gold hover:shadow-[0_0_12px_rgba(201,168,76,0.15)]"
                 >
-                  <YoutubeIcon size={20} />
+                  <YoutubeIcon size={16} />
                 </a>
               )}
             </div>
@@ -64,7 +66,7 @@ export function Footer() {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
+            <h3 className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-silver">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -72,7 +74,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-foreground/60 transition-colors hover:text-gold"
+                    className="text-sm text-foreground/50 transition-colors hover:text-gold"
                   >
                     {link.label}
                   </Link>
@@ -83,16 +85,16 @@ export function Footer() {
 
           {/* Col 3: Contact */}
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">
+            <h3 className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-silver">
               Contact
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href={`mailto:${BUSINESS_INFO.email}`}
-                  className="flex items-center gap-2 text-sm text-foreground/60 transition-colors hover:text-gold"
+                  className="flex items-center gap-2 text-sm text-foreground/50 transition-colors hover:text-gold"
                 >
-                  <Mail size={16} />
+                  <Mail size={16} className="text-gold/50" />
                   {BUSINESS_INFO.email}
                 </a>
               </li>
@@ -100,22 +102,21 @@ export function Footer() {
                 <li>
                   <a
                     href={`tel:${BUSINESS_INFO.telephone}`}
-                    className="flex items-center gap-2 text-sm text-foreground/60 transition-colors hover:text-gold"
+                    className="flex items-center gap-2 text-sm text-foreground/50 transition-colors hover:text-gold"
                   >
-                    <Phone size={16} />
+                    <Phone size={16} className="text-gold/50" />
                     {BUSINESS_INFO.telephoneDisplay}
                   </a>
                 </li>
               )}
-              {/* TODO: Add phone number */}
               <li>
                 <a
                   href={BUSINESS_INFO.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-foreground/60 transition-colors hover:text-gold"
+                  className="flex items-center gap-2 text-sm text-foreground/50 transition-colors hover:text-gold"
                 >
-                  <ExternalLink size={16} />
+                  <ExternalLink size={16} className="text-gold/50" />
                   Facebook Page
                 </a>
               </li>
@@ -124,8 +125,8 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-white/5 pt-6 text-center">
-          <p className="text-xs text-foreground/40">
+        <div className="mt-14 border-t border-white/5 pt-6 text-center">
+          <p className="text-xs text-foreground/30">
             &copy; {new Date().getFullYear()} Axel Multimedia Services. All
             rights reserved. &middot; Iloilo City, Philippines
           </p>

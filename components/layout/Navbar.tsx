@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/lib/constants";
-import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,15 +37,19 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-20">
-        {/* Logo */}
-        <Link href="/" aria-label="Axel Multimedia Services home">
+      <nav className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 md:h-22">
+        {/* Logo — mark + text */}
+        <Link
+          href="/"
+          aria-label="Axel Multimedia Services home"
+          className="flex items-center gap-3"
+        >
           <Image
             src="/logo.png"
-            alt="Axel Multimedia Services"
+            alt=""
             width={160}
-            height={40}
-            className="h-8 w-auto md:h-10"
+            height={160}
+            className="h-12 w-auto md:h-14"
             priority
           />
         </Link>
@@ -64,14 +67,11 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact">
-            <Button
-              variant="outline"
-              className="border-gold text-gold hover:bg-gold hover:text-black"
-              size="sm"
-            >
-              Book a Call
-            </Button>
+          <Link
+            href="/contact"
+            className="rounded-sm bg-gold px-5 py-2 text-xs font-semibold uppercase tracking-wider text-black transition-all hover:bg-gold-light hover:shadow-[0_2px_16px_rgba(201,168,76,0.3)]"
+          >
+            Book a Call
           </Link>
         </div>
 
@@ -106,10 +106,11 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact">
-              <Button className="mt-4 border-gold bg-gold text-black hover:bg-gold-light">
-                Book a Call
-              </Button>
+            <Link
+              href="/contact"
+              className="mt-4 rounded-sm bg-gold px-8 py-3 text-sm font-semibold uppercase tracking-wider text-black transition-all hover:bg-gold-light"
+            >
+              Book a Call
             </Link>
           </motion.div>
         )}

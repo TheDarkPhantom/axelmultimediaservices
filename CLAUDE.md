@@ -37,17 +37,19 @@ All content lives in TypeScript files — no CMS, no database:
 
 Dark cinematic theme — pure black background with gold (#C9A84C) and silver (#B0B8C1) accents.
 
-- **Fonts**: `font-heading` = Cormorant Garamond (editorial headings), `font-sans` = DM Sans (body)
+- **Fonts**: `font-heading` = Cormorant Garamond (editorial headings), `font-sans` = DM Sans (body). Loaded via `next/font/google` in `app/layout.tsx` as CSS variables `--font-cormorant` and `--font-dm-sans`.
 - **Custom Tailwind colors**: `gold` (DEFAULT/light/dark), `silver`, `surface` (DEFAULT = #111111, 2 = #1a1a1a)
-- **shadcn tokens**: `background`, `foreground`, `card`, `muted`, `primary`, `border` — all mapped to dark theme HSL values in `app/globals.css`
+- **shadcn tokens**: `background`, `foreground`, `card`, `muted`, `primary`, `border` — all mapped to dark theme HSL values in `app/globals.css`. Dark mode is hardcoded via `className="dark"` on `<html>`, not togglable.
 - **Radius**: 0.25rem (sharp corners for premium feel)
-- **CSS custom property**: `.marquee-mask` for client marquee fade edges
+- **Custom CSS effects** in `globals.css`: `.text-shadow-hero` (hero text drop shadow), `.marquee-mask` (marquee fade edges), film grain noise overlay via `body::before`, gold selection color, custom scrollbar
 
 ### Component Conventions
 
 - `components/shared/` — reusable primitives: `FadeUp` (Framer Motion scroll-reveal), `SectionLabel` (gold uppercase eyebrow text), `GoldDivider`
 - `components/home/` — homepage sections, some reused on other pages (`ClientsMarquee`, `CTABanner`)
-- `components/layout/` — Navbar (scroll-aware, mobile Sheet), Footer, Preloader (sessionStorage one-time video)
+- `components/layout/` — Navbar (scroll-aware, fullscreen AnimatePresence mobile overlay), Footer, Preloader (one-time logo animation tracked via sessionStorage `axel-visited` key)
+- `components/services/` — `ServiceCard` used on services index and service detail pages
+- `components/contact/` — `ContactForm` (react-hook-form + zod validation, **no backend yet** — form submit shows a toast but doesn't send data; TODO to wire to email service)
 - `components/ui/` — shadcn-managed, do not manually edit these
 - `"use client"` only where needed (Framer Motion hooks, form state, browser APIs). All other components are Server Components.
 
@@ -67,7 +69,7 @@ Every page exports metadata. Homepage injects JSON-LD via `<script type="applica
 
 ### Assets
 
-- `/public/videos/hero.mp4` — hero background video
+- `/public/videos/hero.mp4` — hero background video (parallax via Framer Motion `useTransform`)
 - `/public/logo.png` — transparent logo used in Navbar, Footer, Preloader, and metadata
 - `/public/AMMS Logo.png` and `/public/AMMS Logo Transparent.png` — original logo files from client
-- Portfolio images currently use `placehold.co` URLs — `next.config.mjs` has this domain allowlisted.
+- Portfolio images currently use `placehold.co` URLs — `next.config.mjs` has this domain allowlisted

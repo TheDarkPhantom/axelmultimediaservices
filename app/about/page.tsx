@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Camera, Plane, HardDrive } from "lucide-react";
+import {
+  Camera,
+  Plane,
+  HardDrive,
+  MessageCircle,
+  ClipboardList,
+  Settings,
+  PlayCircle,
+  Package,
+} from "lucide-react";
 import { SITE_URL } from "@/lib/constants";
 import {
   generateWebPageSchema,
@@ -48,19 +56,19 @@ const equipmentBlocks = [
 // TODO: Add team member names and photos
 const teamMembers = [
   {
-    name: "Team Member",
+    initials: "PD",
     role: "Production Director",
-    placeholder: "/placeholder-team.jpg",
+    description: "Coordinates every shoot from setup to delivery.",
   },
   {
-    name: "Team Member",
+    initials: "CO",
     role: "Lead Camera Operator",
-    placeholder: "/placeholder-team.jpg",
+    description: "Multi-camera switching and live broadcast operation.",
   },
   {
-    name: "Team Member",
+    initials: "SE",
     role: "Streaming Engineer",
-    placeholder: "/placeholder-team.jpg",
+    description: "Network redundancy, encoding, and platform management.",
   },
 ];
 
@@ -99,18 +107,18 @@ export default function AboutPage() {
 
       {/* Mission Pull Quote */}
       <section className="pb-20 md:pb-28">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="mx-auto max-w-5xl px-6 text-center">
           <FadeUp>
-            <blockquote className="relative">
-              <span className="absolute -left-2 -top-4 font-heading text-6xl text-gold/40 md:-left-6 md:-top-6 md:text-8xl">
+            <blockquote className="relative py-4">
+              {/* Decorative lines */}
+              <div className="mx-auto mb-8 h-px w-16 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+              <span className="absolute left-0 top-0 font-heading text-7xl text-gold/25 md:text-9xl">
                 &ldquo;
               </span>
-              <p className="font-heading text-2xl italic text-foreground md:text-4xl">
+              <p className="relative font-heading text-2xl italic leading-relaxed text-foreground md:text-4xl md:leading-relaxed">
                 We believe every event deserves a broadcast-quality story.
               </p>
-              <span className="absolute -bottom-8 -right-2 font-heading text-6xl text-gold/40 md:-bottom-10 md:-right-6 md:text-8xl">
-                &rdquo;
-              </span>
+              <div className="mx-auto mt-8 h-px w-16 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
             </blockquote>
           </FadeUp>
         </div>
@@ -160,6 +168,85 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* How We Work — Process Timeline */}
+      <section className="border-t border-white/5 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center">
+            <FadeUp>
+              <SectionLabel text="HOW WE WORK" />
+              <h2 className="mt-4 font-heading text-3xl text-foreground md:text-5xl">
+                From First Call to Final Delivery
+              </h2>
+            </FadeUp>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-5">
+            {[
+              {
+                icon: MessageCircle,
+                num: "01",
+                title: "Discovery Call",
+                description:
+                  "Tell us about your event — date, venue, audience, goals. We listen first, then recommend.",
+              },
+              {
+                icon: ClipboardList,
+                num: "02",
+                title: "Planning & Scope",
+                description:
+                  "We define the production plan: camera count, streaming platforms, crew size, and deliverables.",
+              },
+              {
+                icon: Settings,
+                num: "03",
+                title: "Pre-Production",
+                description:
+                  "Venue walkthrough, camera positions, network testing, and a full technical rehearsal.",
+              },
+              {
+                icon: PlayCircle,
+                num: "04",
+                title: "Event Day",
+                description:
+                  "Our crew arrives early, sets up, and runs the production while you focus on your event.",
+              },
+              {
+                icon: Package,
+                num: "05",
+                title: "Delivery",
+                description:
+                  "Organized footage, highlight reels, and stream analytics — delivered in your preferred format.",
+              },
+            ].map((step, index) => {
+              const StepIcon = step.icon;
+              return (
+                <FadeUp key={step.num} delay={index * 0.1}>
+                  <div className="relative text-center md:text-left">
+                    {/* Connector line (hidden on mobile, on last item) */}
+                    {index < 4 && (
+                      <div className="absolute left-1/2 top-12 hidden h-px w-full bg-gradient-to-r from-gold/20 to-gold/5 md:block" />
+                    )}
+                    {/* Number + Icon */}
+                    <div className="relative mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-gold/20 bg-surface md:mx-0">
+                      <StepIcon className="text-gold" size={22} />
+                      <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-gold text-[10px] font-semibold text-black">
+                        {index + 1}
+                      </span>
+                    </div>
+                    <h3 className="text-sm font-medium text-foreground">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-foreground/45">
+                      {step.description}
+                    </p>
+                  </div>
+                </FadeUp>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Equipment Section */}
       <section className="border-t border-white/5 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
@@ -176,14 +263,21 @@ export default function AboutPage() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {equipmentBlocks.map((block, index) => {
               const Icon = block.icon;
+              const num = String(index + 1).padStart(2, "0");
               return (
                 <FadeUp key={block.title} delay={index * 0.1}>
-                  <div className="rounded-sm border border-white/5 bg-surface p-8">
-                    <Icon className="text-gold" size={28} />
-                    <h3 className="mt-4 text-lg font-medium text-foreground">
+                  <div className="relative overflow-hidden rounded-sm border border-white/5 bg-surface p-8">
+                    <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent" />
+                    <span className="absolute right-5 top-4 font-heading text-4xl font-light text-white/[0.08]">
+                      {num}
+                    </span>
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gold/5">
+                      <Icon className={index % 2 === 0 ? "text-gold" : "text-silver"} size={22} />
+                    </div>
+                    <h3 className="mt-5 text-base font-medium text-foreground">
                       {block.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-foreground/60">
+                    <p className="mt-3 text-sm leading-relaxed text-foreground/50">
                       {block.description}
                     </p>
                   </div>
@@ -211,20 +305,16 @@ export default function AboutPage() {
             {teamMembers.map((member, index) => (
               <FadeUp key={index} delay={index * 0.1}>
                 <div className="text-center">
-                  <div className="mx-auto h-32 w-32 overflow-hidden rounded-full bg-surface-2">
-                    <Image
-                      src={member.placeholder}
-                      alt={member.name}
-                      width={128}
-                      height={128}
-                      className="h-full w-full object-cover"
-                    />
+                  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border border-gold/20 bg-gradient-to-br from-surface-2 to-surface">
+                    <span className="font-heading text-2xl font-light text-gold/60">
+                      {member.initials}
+                    </span>
                   </div>
                   <h3 className="mt-4 text-base font-medium text-foreground">
-                    {member.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-foreground/50">
                     {member.role}
+                  </h3>
+                  <p className="mt-1 text-sm text-foreground/40">
+                    {member.description}
                   </p>
                 </div>
               </FadeUp>

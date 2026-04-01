@@ -54,8 +54,10 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-5 rounded-sm bg-surface p-8"
+      className="relative overflow-hidden space-y-5 rounded-sm border border-white/5 bg-surface p-8"
     >
+      {/* Gold top accent */}
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-gold/40 via-gold/20 to-transparent" />
       {/* Name */}
       <div className="space-y-2">
         <Label htmlFor="name">
@@ -64,7 +66,7 @@ export function ContactForm() {
         <Input
           id="name"
           placeholder="Your full name"
-          className="bg-surface border-white/10 focus:border-gold"
+          className="bg-surface border-white/10 focus:border-gold transition-colors focus:shadow-[0_0_0_1px_rgba(201,168,76,0.2)]"
           {...register("name")}
         />
         {errors.name && (
@@ -81,7 +83,7 @@ export function ContactForm() {
           id="email"
           type="email"
           placeholder="you@example.com"
-          className="bg-surface border-white/10 focus:border-gold"
+          className="bg-surface border-white/10 focus:border-gold transition-colors focus:shadow-[0_0_0_1px_rgba(201,168,76,0.2)]"
           {...register("email")}
         />
         {errors.email && (
@@ -96,7 +98,7 @@ export function ContactForm() {
           id="phone"
           type="tel"
           placeholder="+63 xxx xxx xxxx"
-          className="bg-surface border-white/10 focus:border-gold"
+          className="bg-surface border-white/10 focus:border-gold transition-colors focus:shadow-[0_0_0_1px_rgba(201,168,76,0.2)]"
           {...register("phone")}
         />
       </div>
@@ -108,7 +110,7 @@ export function ContactForm() {
         </Label>
         <select
           id="eventType"
-          className="w-full rounded-sm border border-white/10 bg-surface px-3 py-2 text-sm text-foreground focus:border-gold focus:outline-none"
+          className="w-full rounded-sm border border-white/10 bg-surface px-3 py-2 text-sm text-foreground transition-colors focus:border-gold focus:outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.2)]"
           defaultValue=""
           {...register("eventType")}
         >
@@ -132,7 +134,7 @@ export function ContactForm() {
         <input
           id="eventDate"
           type="date"
-          className="w-full rounded-sm border border-white/10 bg-surface px-3 py-2 text-sm text-foreground focus:border-gold focus:outline-none"
+          className="w-full rounded-sm border border-white/10 bg-surface px-3 py-2 text-sm text-foreground transition-colors focus:border-gold focus:outline-none focus:shadow-[0_0_0_1px_rgba(201,168,76,0.2)] [color-scheme:dark]"
           {...register("eventDate")}
         />
       </div>
@@ -146,7 +148,7 @@ export function ContactForm() {
           id="message"
           placeholder="Event details, expected audience, services you're interested in..."
           rows={5}
-          className="bg-surface border-white/10 focus:border-gold"
+          className="bg-surface border-white/10 focus:border-gold transition-colors focus:shadow-[0_0_0_1px_rgba(201,168,76,0.2)]"
           {...register("message")}
         />
         {errors.message && (
@@ -158,7 +160,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-sm bg-gold text-black hover:bg-gold-light"
+        className="w-full rounded-sm bg-gold text-black font-semibold hover:bg-gold-light hover:shadow-[0_4px_20px_rgba(201,168,76,0.3)] transition-all"
       >
         {isSubmitting ? "Sending..." : "Send Inquiry"}
       </Button>

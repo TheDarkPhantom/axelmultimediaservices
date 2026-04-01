@@ -81,14 +81,18 @@ export default function ContactPage() {
                     <span className="text-sm">{BUSINESS_INFO.email}</span>
                   </Link>
 
-                  {/* Phone */}
-                  {/* TODO: Add phone number */}
-                  <div className="flex items-center gap-3 text-foreground/40">
-                    <Phone className="shrink-0 text-gold/50" size={20} />
-                    <span className="text-sm italic">
-                      Phone number coming soon
-                    </span>
-                  </div>
+                  {/* Phone — hidden until number is available */}
+                  {BUSINESS_INFO.telephone && (
+                    <a
+                      href={`tel:${BUSINESS_INFO.telephone}`}
+                      className="flex items-center gap-3 text-foreground/70 transition-colors hover:text-gold"
+                    >
+                      <Phone className="shrink-0 text-gold" size={20} />
+                      <span className="text-sm">
+                        {BUSINESS_INFO.telephoneDisplay}
+                      </span>
+                    </a>
+                  )}
 
                   {/* Facebook */}
                   <Link

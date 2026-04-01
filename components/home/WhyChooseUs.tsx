@@ -1,25 +1,26 @@
 import { FadeUp } from "@/components/shared/FadeUp";
+import { SectionLabel } from "@/components/shared/SectionLabel";
 
 const differentiators = [
   {
     title: "End-to-End Production",
     description:
-      "From pre-event setup to final delivery, we own every detail.",
+      "Pre-event rigging through final delivery. One crew, one standard, zero handoffs.",
   },
   {
     title: "Live Streaming Specialists",
     description:
-      "Multi-platform broadcast with redundant connections and zero signal drops.",
+      "Multi-platform broadcast with redundant internet, backup encoders, and zero signal drops.",
   },
   {
     title: "Built Around Your Budget",
     description:
-      "No rigid packages. We scope every project around your specific requirements.",
+      "No rigid packages. We scope every project to your venue, audience, and timeline.",
   },
   {
     title: "Region 6's Trusted Crew",
     description:
-      "Proven with government agencies, corporations, and Iloilo's biggest cultural events.",
+      "Government agencies, corporations, and Iloilo's biggest cultural events trust our team.",
   },
 ];
 
@@ -31,35 +32,53 @@ export function WhyChooseUs() {
           {/* Left column */}
           <FadeUp>
             <div>
-              <h2 className="font-heading text-3xl text-foreground md:text-4xl">
-                Premium Production. Local Expertise.
+              <SectionLabel text="WHY AXEL" centered={false} />
+              <h2 className="mt-4 font-heading text-3xl text-foreground md:text-4xl">
+                The Region&apos;s Production Standard.
               </h2>
-              <div className="mt-8 space-y-6">
-                {differentiators.map((item) => (
-                  <div key={item.title} className="border-l-2 border-gold pl-6">
-                    <p className="font-medium text-foreground">{item.title}</p>
-                    <p className="mt-1 text-sm text-foreground/60">
-                      {item.description}
-                    </p>
+              <div className="mt-10 space-y-6">
+                {differentiators.map((item, index) => (
+                  <div
+                    key={item.title}
+                    className="flex gap-5 border-l-2 border-gold/40 pl-5 transition-colors hover:border-gold"
+                  >
+                    <span className="font-heading text-2xl font-light text-gold/30">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="font-medium text-foreground">
+                        {item.title}
+                      </p>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/50">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
           </FadeUp>
 
-          {/* Right column */}
+          {/* Right column — quote panel */}
           <FadeUp delay={0.2}>
-            <div className="rounded-sm bg-surface-2 p-8 md:p-10">
-              <span className="font-heading text-6xl leading-none text-gold">
+            <div className="relative overflow-hidden rounded-sm border border-white/5 bg-gradient-to-br from-surface-2 to-surface p-8 md:p-10">
+              {/* Decorative X watermark */}
+              <div className="absolute -right-8 -top-8 font-heading text-[160px] font-bold leading-none text-white/[0.02]">
+                X
+              </div>
+              {/* Diagonal gold accent */}
+              <div className="absolute -left-px bottom-0 top-0 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+
+              <span className="font-heading text-7xl leading-none text-gold/40">
                 &ldquo;
               </span>
-              <blockquote className="mt-2 font-heading text-xl italic leading-relaxed text-foreground/90 md:text-2xl">
+              <blockquote className="mt-1 font-heading text-xl italic leading-relaxed text-foreground/90 md:text-2xl">
                 Every event has a story worth broadcasting. We make sure the
                 world sees it.
               </blockquote>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="h-px w-8 bg-gold" />
-                <span className="text-sm text-foreground/50">
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-px w-10 bg-gold/50" />
+                <span className="text-sm tracking-wide text-silver">
                   Axel Multimedia Services
                 </span>
               </div>

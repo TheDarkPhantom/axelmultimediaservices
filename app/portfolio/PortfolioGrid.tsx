@@ -31,10 +31,10 @@ export function PortfolioGrid() {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`rounded-sm px-4 py-2 text-sm font-medium transition-all ${
+            className={`relative rounded-sm px-4 py-2 text-sm font-medium transition-all duration-200 ${
               activeCategory === category
-                ? "bg-gold text-black"
-                : "border border-white/10 text-foreground/60 hover:border-gold/40"
+                ? "bg-gold text-black shadow-[0_2px_12px_rgba(201,168,76,0.2)]"
+                : "border border-white/10 text-foreground/50 hover:border-gold/30 hover:text-foreground/80"
             }`}
           >
             {category}

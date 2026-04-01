@@ -47,14 +47,17 @@ function AnimatedCounter({
 
 export function StatsSection() {
   return (
-    <section className="bg-black py-20 md:py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+    <section className="relative overflow-hidden bg-black py-20 md:py-28">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-surface/50 via-transparent to-surface/50" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
           {TRUST_STATS.map((stat, index) => (
-            <FadeUp key={stat.label} delay={index * 0.1}>
-              <div className="border-t-2 border-gold pt-6">
+            <FadeUp key={stat.label} delay={index * 0.12}>
+              <div className="relative border-t-2 border-gold/60 pt-6">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                <p className="mt-2 text-xs uppercase tracking-[0.2em] text-foreground/50">
+                <p className="mt-3 text-xs uppercase tracking-[0.2em] text-silver">
                   {stat.label}
                 </p>
               </div>
