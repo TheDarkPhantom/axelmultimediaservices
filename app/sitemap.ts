@@ -28,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...serviceRoutes,
     {
+      url: `${SITE_URL}/gear-rentals`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/portfolio`,
       lastModified,
       changeFrequency: "monthly",

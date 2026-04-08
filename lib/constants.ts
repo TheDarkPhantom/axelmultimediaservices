@@ -59,6 +59,7 @@ export const DEFAULT_OG_IMAGE = {
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
+  { label: "Gear Rentals", href: "/gear-rentals" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

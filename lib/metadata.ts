@@ -126,3 +126,29 @@ export function generateWebPageSchema(
     },
   };
 }
+
+export function generateOfferCatalogSchema(
+  items: { name: string; category: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    name: "Professional Gear Rentals",
+    description:
+      "Broadcasting and videography equipment available for rent from Axel Multimedia Services in Iloilo City, Philippines.",
+    provider: {
+      "@type": "Organization",
+      name: BUSINESS_INFO.name,
+      url: SITE_URL,
+    },
+    itemListElement: items.map((item, index) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Product",
+        name: item.name,
+        category: item.category,
+      },
+      position: index + 1,
+    })),
+  };
+}
