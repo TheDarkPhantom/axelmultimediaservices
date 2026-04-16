@@ -17,10 +17,10 @@ function MemberPhoto({
   member: TeamMember;
   size: "lg" | "sm";
 }) {
-  const px = size === "lg" ? 160 : 120;
+  const px = size === "lg" ? 240 : 160;
   const sizeClasses =
-    size === "lg" ? "h-[160px] w-[160px]" : "h-[120px] w-[120px]";
-  const initialsSize = size === "lg" ? "text-4xl" : "text-2xl";
+    size === "lg" ? "h-[240px] w-[240px]" : "h-[160px] w-[160px]";
+  const initialsSize = size === "lg" ? "text-5xl" : "text-3xl";
 
   return (
     <div
