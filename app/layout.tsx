@@ -3,7 +3,6 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Preloader } from "@/components/layout/Preloader";
 import { SITE_URL, DEFAULT_OG_IMAGE } from "@/lib/constants";
 import "./globals.css";
 
@@ -68,7 +67,6 @@ export default function RootLayout({
       className={`dark ${cormorant.variable} ${dmSans.variable}`}
     >
       <body className="min-h-screen bg-background font-sans antialiased">
-        <Preloader />
         <Navbar />
         <main>{children}</main>
         <Footer />
