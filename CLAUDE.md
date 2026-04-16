@@ -31,6 +31,7 @@ All content lives in TypeScript files — no CMS, no database:
 - `lib/constants.ts` — site config, business info, nav links, trust stats
 - `lib/services-data.ts` — 6 services with full copy, `getServiceBySlug()`, `getServiceSlugs()`, `getAllServices()`
 - `lib/clients-data.ts` — client names, 12 portfolio items with categories, filter helpers
+- `lib/gear-rentals-data.ts` — gear inventory grouped by department (Livestream, Videography) with categories and items
 - `lib/metadata.ts` — JSON-LD schema generators (LocalBusiness, Organization, Service, Breadcrumb, etc.)
 
 ### Design System
@@ -50,6 +51,7 @@ Dark cinematic theme — pure black background with gold (#C9A84C) and silver (#
 - `components/layout/` — Navbar (scroll-aware, fullscreen AnimatePresence mobile overlay), Footer, Preloader (one-time logo animation tracked via sessionStorage `axel-visited` key)
 - `components/services/` — `ServiceCard` used on services index and service detail pages
 - `components/contact/` — `ContactForm` (react-hook-form + zod validation, **no backend yet** — form submit shows a toast but doesn't send data; TODO to wire to email service)
+- `components/gear-rentals/` — `GearInventory` (filterable gear list by department/category), `GearRentalCTA`
 - `components/ui/` — shadcn-managed, do not manually edit these
 - `"use client"` only where needed (Framer Motion hooks, form state, browser APIs). All other components are Server Components.
 

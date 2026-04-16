@@ -19,6 +19,7 @@ import { SectionLabel } from "@/components/shared/SectionLabel";
 import { GoldDivider } from "@/components/shared/GoldDivider";
 import { ClientsMarquee } from "@/components/home/ClientsMarquee";
 import { CTABanner } from "@/components/home/CTABanner";
+import { TeamSection } from "@/components/about/TeamSection";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -53,24 +54,6 @@ const equipmentBlocks = [
   },
 ];
 
-// TODO: Add team member names and photos
-const teamMembers = [
-  {
-    initials: "PD",
-    role: "Production Director",
-    description: "Coordinates every shoot from setup to delivery.",
-  },
-  {
-    initials: "CO",
-    role: "Lead Camera Operator",
-    description: "Multi-camera switching and live broadcast operation.",
-  },
-  {
-    initials: "SE",
-    role: "Streaming Engineer",
-    description: "Network redundancy, encoding, and platform management.",
-  },
-];
 
 export default function AboutPage() {
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -300,26 +283,7 @@ export default function AboutPage() {
               <GoldDivider className="my-6" />
             </FadeUp>
           </div>
-          {/* TODO: Add team member names and photos */}
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-            {teamMembers.map((member, index) => (
-              <FadeUp key={index} delay={index * 0.1}>
-                <div className="text-center">
-                  <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border border-gold/20 bg-gradient-to-br from-surface-2 to-surface">
-                    <span className="font-heading text-2xl font-light text-gold/60">
-                      {member.initials}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 text-base font-medium text-foreground">
-                    {member.role}
-                  </h3>
-                  <p className="mt-1 text-sm text-foreground/40">
-                    {member.description}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
+          <TeamSection />
         </div>
       </section>
 
