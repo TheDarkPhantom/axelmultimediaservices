@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Axel Multimedia Services
 
-## Getting Started
+Marketing website for **Axel Multimedia Services** — a premium broadcasting and event coverage company based in Iloilo City, Philippines.
 
-First, run the development server:
+Live at **[axelmultimediaservices.com](https://axelmultimediaservices.com/)**.
+
+## Stack
+
+- **Next.js 14** (App Router, fully static / SSG — no API routes)
+- **Tailwind CSS v3** + **shadcn/ui** (base-nova style)
+- **Framer Motion** for animations
+- **react-hook-form + zod** for the contact form
+- **sonner** for toast notifications
+- TypeScript everywhere, content authored in `lib/*-data.ts` files
+
+See [CLAUDE.md](./CLAUDE.md) for detailed architecture notes.
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run lint       # ESLint (next/core-web-vitals + next/typescript)
+npx tsc --noEmit   # type-check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site is hosted on **Vercel** and auto-deploys from `main`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Optional environment variable (set in Vercel → Project → Settings → Environment Variables):
 
-## Learn More
+| Variable | Default | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | `https://axelmultimediaservices.com` | Used for metadata, sitemap, and JSON-LD canonical URLs. |
 
-To learn more about Next.js, take a look at the following resources:
+No other env vars are required — all content is in the repo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Outstanding tasks (contact form wiring, real portfolio media, analytics, legal pages, etc.) live in [TODO.md](./TODO.md).

@@ -3,7 +3,7 @@ import { getServiceSlugs } from "@/lib/services-data";
 import { SITE_URL } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date("2025-03-31");
+  const lastModified = new Date("2026-04-17");
   const serviceSlugs = getServiceSlugs();
 
   const serviceRoutes: MetadataRoute.Sitemap = serviceSlugs.map((slug) => ({
