@@ -15,7 +15,7 @@ const teamMembers: TeamMember[] = [
       "Founded Axel Multimedia Services to bring broadcast-level precision to events of every scale.",
     bio: "Eiman built Axel Multimedia Services around a single conviction: live events deserve to be experienced beyond the venue. He designs production systems focused on reliability, clarity, and broadcast-grade quality — ensuring every moment is captured and transmitted with the same emotion, energy, and weight as being physically present. His vision drives the standard behind every project the company takes on.",
     isFounder: true,
-    photo: null,
+    photo: "/team/CHARLENE EIMAN GALLO.jpeg",
   },
   {
     name: "Emmanuel John Francisco",
@@ -60,7 +60,7 @@ const teamMembers: TeamMember[] = [
       "Brings precision and intention to every frame, using gimbals for seamless camera movement.",
     bio: "Ruben operates with a steady hand and a clear sense of purpose behind the lens. His gimbal work produces fluid, controlled movement that enhances the visual story without drawing attention to the technique — letting the event itself stay front and center.",
     isFounder: false,
-    photo: null,
+    photo: "/team/RUBEN JAVA.jpg",
   },
   {
     name: "Ardee Mallo",
@@ -96,7 +96,7 @@ const teamMembers: TeamMember[] = [
       "Crafts raw event moments into cohesive, cinematic narratives with intentional pacing and flow.",
     bio: "Maetrix takes the raw material from a production and shapes it into a story. Her editing is guided by pacing, continuity, sound design, and visual flow — transforming hours of footage into polished, emotionally resonant narratives that feel intentional from the first frame to the last.",
     isFounder: false,
-    photo: null,
+    photo: "/team/MAETRIX GONZALEZ.jpg",
   },
 ];
 
