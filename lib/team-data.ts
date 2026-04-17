@@ -33,7 +33,7 @@ const teamMembers: TeamMember[] = [
       "Blends creative storytelling with precise live-stream execution across multi-camera setups.",
     bio: "Clifford bridges the gap between filmmaking and live production. He manages multi-camera switching and real-time broadcast decisions while bringing a filmmaker's eye to composition and pacing — delivering high-quality output whether the footage is going out live or captured for post-production.",
     isFounder: false,
-    photo: null,
+    photo: "/team/James Clifford Deocampo.jpg",
   },
   {
     name: "Janjan Suarez",
@@ -51,7 +51,7 @@ const teamMembers: TeamMember[] = [
       "A detail-driven storyteller who captures moments with purpose, precision, and cinematic impact.",
     bio: "Kamski approaches every shoot with an eye for the details that make a moment worth preserving. He blends technical skill with creative instinct, framing each shot with intention and delivering footage that carries weight — whether it's a wide establishing shot or a tight, emotional close-up.",
     isFounder: false,
-    photo: null,
+    photo: "/team/Kamski Mena.JPG",
   },
   {
     name: "Ruben Java",
@@ -63,13 +63,22 @@ const teamMembers: TeamMember[] = [
     photo: null,
   },
   {
+    name: "Ardee Mallo",
+    role: "Filmmaker / Camera Operator",
+    summary:
+      "A gimbal operator who delivers smooth, precise movement that turns shots into clean, cinematic visuals.",
+    bio: "Ardee specializes in fluid, controlled gimbal work that adds polish and motion to every scene. His precision behind the rig produces footage with cinematic weight — turning routine coverage into visuals that feel composed, intentional, and ready for the screen.",
+    isFounder: false,
+    photo: "/team/Ardee Mallo.JPG",
+  },
+  {
     name: "Kristine Espinosa",
     role: "Photographer / Camera Operator",
     summary:
       "A patient observer with a deep understanding of light, composition, and timing.",
     bio: "Tintin moves through events with quiet awareness, always ready to recognize meaning in the most fleeting moments. Through a deep understanding of light, composition, and timing, she shapes reality into images that go beyond what is seen on the surface — capturing the emotion and atmosphere that make each event unique.",
     isFounder: false,
-    photo: null,
+    photo: "/team/Kristine Espinosa.JPG",
   },
   {
     name: "Denrey Dumaguin",
@@ -78,7 +87,7 @@ const teamMembers: TeamMember[] = [
       "Captures dynamic aerial perspectives grounded in safety, control, and environmental awareness.",
     bio: "Denrey brings a unique vantage point to every project. His aerial work adds depth, scale, and a fresh perspective — from sweeping venue panoramas to dynamic tracking shots. Every flight is grounded in safety protocols, precise control, and a strong sense of composition that turns overhead footage into cinematic content.",
     isFounder: false,
-    photo: null,
+    photo: "/team/Denrey Dumaguin.jpg",
   },
   {
     name: "Maetrix Gonzales",
